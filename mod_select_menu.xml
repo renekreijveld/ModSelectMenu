@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>Select Menu</name>
+	<author>Rene Kreijveld</author>
+	<creationDate>June 2012</creationDate>
+	<copyright>Copyright (C) ReneKreijveld.nl All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>email@renekreijveld.nl</authorEmail>
+	<authorUrl>www.renekreijveld.nl</authorUrl>
+	<version>1.0.2</version>
+	<description>Menu module to generate a menu as a select list.</description>
+	<files>
+		<filename module="mod_select_menu">mod_select_menu.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_select_menu.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="menutype"
+					type="menu"
+					label="Select Menu"
+					description="Select a menu from the list" />
+				<field
+					name="startLevel"
+					type="list"
+					default="1"
+					label="Start Level"
+					description="Level to start rendering the menu at. Setting the start and end levels to the same # and setting 'Show Sub-menu items' to yes will only display that single level." 
+					>
+					<option value="1">J1</option>
+					<option value="2">J2</option>
+					<option value="3">J3</option>
+					<option value="4">J4</option>
+					<option value="5">J5</option>
+					<option value="6">J6</option>
+					<option value="7">J7</option>
+					<option value="8">J8</option>
+					<option value="9">J9</option>
+					<option value="10">J10</option>
+				</field>
+				<field
+					name="endLevel"
+					type="list"
+					default="0"
+					label="End Level"
+					description="Level to stop rendering the menu at. If you choose 'All', all levels will be shown depending on 'Show Sub-menu items' setting."
+					>
+					<option value="0">JALL</option>
+					<option value="1">J1</option>
+					<option value="2">J2</option>
+					<option value="3">J3</option>
+					<option value="4">J4</option>
+					<option value="5">J5</option>
+					<option value="6">J6</option>
+					<option value="7">J7</option>
+					<option value="8">J8</option>
+					<option value="9">J9</option>
+					<option value="10">J10</option>
+				</field>
+				<field
+					name="showLabel"
+					type="radio"
+					default="0"
+					label="Show label"
+					description="Show label left to the select list.">
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
+				</field>
+				<field
+					name="selectLabel"
+					type="text"
+					label="Select label"
+					default="Menu:"
+					description="Label to show left of the select list." />
+				<field
+					name="topText"
+					type="text"
+					label="Top text"
+					default="Please choose:"
+					description="Text to show at the top of the select list." />
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="class_sfx"
+					type="text"
+					label="Menu Class Suffix"
+					description="A suffix to be applied to the CSS class of the menu items." />
+				<field
+					name="layout"
+					type="modulelayout"
+					label="Alternative Layout"
+					description="Use a different layout from the supplied module or overrides in the templates." />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="Module Class Suffix"
+					description="A suffix to be applied to the CSS class of the module. This allows for individual module styling." />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="Caching"
+					description="Select wether to cache the contents of this module.">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="Cache Time"
+					description="The time before the module is recached." />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
