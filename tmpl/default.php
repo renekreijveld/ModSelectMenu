@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version 1.0.0 stable
+ * @version 1.0.3 stable
  * @package Select Menu
  * @copyright Copyright (C) 2012 ReneKreijveld.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL
@@ -23,11 +23,12 @@
 
 // No direct access.
 defined('_JEXEC') or die;
+$module_id = $module->id;
 ?>
 
-<form name="SelMenFrm">
+<form name="SelMenFrm<?php echo $module_id;?>">
 <?php if($params->get('showLabel') == 1) echo $params->get('selectLabel')."&nbsp;"; ?>
-<select name="SelMenSel" class="<?php echo $class_sfx;?>" onchange="javascript:location.href=document.SelMenFrm.SelMenSel.options[document.SelMenFrm.SelMenSel.selectedIndex].value;">
+<select name="SelMenSel<?php echo $module_id;?>" class="<?php echo $class_sfx;?>" onchange="javascript:location.href=document.SelMenFrm<?php echo $module_id;?>.SelMenSel<?php echo $module_id;?>.options[document.SelMenFrm<?php echo $module_id;?>.SelMenSel<?php echo $module_id;?>.selectedIndex].value;">
 <option><?php echo $params->get('topText');?></option>
 <?php
 foreach ($list as $i => &$item) :
@@ -36,12 +37,7 @@ foreach ($list as $i => &$item) :
 	$selected = "";
 	if (($item->home == 0) && ($item->id == $active_id)) $selected = "selected=\"selected\"";
 	// Set indent
-	if ($item->level == 1) $indent = "";
-	if ($item->level == 2) $indent = "&nbsp;-&nbsp;";
-	if ($item->level == 3) $indent = "&nbsp;-&nbsp;&nbsp;-&nbsp;";
-	if ($item->level == 4) $indent = "&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;";
-	if ($item->level == 5) $indent = "&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;";
-	if ($item->level == 6) $indent = "&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;";
+	$indent = str_repeat("&nbsp;",($item->level>=1?($item->level-1):0));
 
 	echo "<option ".$selected."value=\"".$item->flink."\">".$indent.$item->title."</option>";
 

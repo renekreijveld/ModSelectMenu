@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version 1.0.0 stable
+ * @version 1.0.3 stable
  * @package Select Menu
  * @copyright Copyright (C) 2012 ReneKreijveld.nl, All rights reserved.
  * @license http://www.gnu.org/licenses GNU/GPL

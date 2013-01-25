@@ -11,7 +11,7 @@
 	<license>GNU General Public License version 3 or later</license>
 	<authorEmail>email@renekreijveld.nl</authorEmail>
 	<authorUrl>www.renekreijveld.nl</authorUrl>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<description>Menu module to generate a menu as a select list.</description>
 	<files>
 		<filename module="mod_select_menu">mod_select_menu.php</filename>
